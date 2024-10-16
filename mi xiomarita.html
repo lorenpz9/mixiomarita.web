@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xiomarita</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000000;
+    }
+
+    .hearth {
+        height: 150px;
+        width: 150px;
+        background-color: rgb(255, 0, 212);
+        position: relative;
+        transform: rotate(45deg);
+        box-shadow: -20px 20px 150px #f204b7;
+        animation: palpitar 0.5s linear infinite alternate;
+        cursor: pointer; /* Para mostrar que es clickable */
+    }
+
+    .contenido {
+        position: fixed;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    h1, h2 {
+        color: white;
+    }
+
+    @keyframes palpitar {
+        0%{transform: rotate(45deg) scale(1.10);}
+        80%{transform: rotate(45deg) scale(1.0);}
+        100%{transform: rotate(45deg) scale(0.8);}
+    }
+
+    .hearth::before {
+        content: "";
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background-color: rgb(255, 0, 212);
+        right: 50%;
+        border-radius: 50%;
+        box-shadow: 20px 20px 150px #f204a3;
+    }
+
+    .hearth::after {
+        content: "";
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background-color: rgb(255, 0, 212);
+        top: -50%;
+        border-radius: 50%;
+        box-shadow: 20px 20px 150px #f204be;
+    }
+</style>
+<body>
+    <div class="hearth" id="corazon"></div>
+    <div class="contenido">
+        <h1> ¡Feliz 1er mes mi negrita preciosa! </h1>
+        <h2 id="mensaje"> </h2>
+    </div>
+
+    <script>
+        const mensajes = [
+           
+        "gracias por este primer mes tan hermoso",
+        "sé que hemos tenido muchos altibajos",
+        "pero tenemos las ganas de mejorar por nosotros",
+        "sé que hubieras esperado un gran regalo de mi parte",
+        "y en serio disculpame por esta vez no poder darte nada:(",
+        "sin embargo no queria darte algo",
+        "darte una simple carta se me hacia muy meh",
+        "preferí hacer una pagina para tí",
+        "tal ves no sea la gran cosa y sea muy básica",
+        "pero lo hice con amor:(",
+        "deseo pasar toda mi vida a tu lado",
+        "deseo ya llegar a la etapa donde te vea al despertar y dormirme",
+        "Eres mi tesoro más bonito y preciado",
+        "y deseo que nunca te aburras de mí",
+        "gracias por existir y estar en mi vida",
+        "eres lo primero que pienso al despertar",
+        "Mi amor por ti es y será eterno",
+        "y aunque a veces se nos agote la paciencia",
+        "siempre estaremos para intentar mejorar las cosas",
+        "porque de esto se trata",
+        "porque tú y yo siempre",
+        "porque tú y yo nacimos para estar juntos",
+        "porque tú y yo podemos con todo",
+        "gracias por ser la primera persona en demostrar que le importo",
+        "eres tan linda que cuando te veo solo pienso que soy demasiado afortunado",
+        "feliz mes mi amor, que vengan muchisimos más",
+        "soy y seré siempre solo tuyo",
+        "espero te haya gustado:(",
+        "te amo con todo mi corazón mi negrita hermosa"
+
+        ];
+
+        // Variable para llevar el seguimiento del índice actual
+        let indiceMensaje = 0;
+
+        // Seleccionar el elemento del corazón y el mensaje
+        const corazon = document.getElementById("corazon");
+        const mensaje = document.getElementById("mensaje");
+
+        // Agregar el evento de clic para cambiar el mensaje
+        corazon.addEventListener("click", () => {
+            // Mostrar el mensaje correspondiente al índice actual
+            mensaje.textContent = mensajes[indiceMensaje];
+            
+            // Incrementar el índice y reiniciarlo si llega al final
+            indiceMensaje = (indiceMensaje + 1) % mensajes.length;
+        });
+    </script>
+</body>
+</html>
